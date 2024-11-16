@@ -135,7 +135,6 @@ function changeAddToCartBtn(productId, desserts) {
       e.stopPropagation();
       subtract(productId, message, span, desserts);
     });
-
 };
 
 function add(productId, message, span, desserts) {
@@ -146,8 +145,8 @@ function add(productId, message, span, desserts) {
       span.innerHTML = matchingProduct.quantity;
       updateQuantity(productId, matchingProduct.quantity);
       renderCart(cart, desserts);
-      if(matchingProduct.quantity >= 3) {
-       matchingProduct.quantity = 3;
+      if(matchingProduct.quantity >= 10) {
+       matchingProduct.quantity = 10;
         message.innerHTML = `Quantity cannot be more then ${matchingProduct.quantity}!!!`;
         message.classList.add('error-message');
         span.innerHTML = matchingProduct.quantity;
@@ -191,8 +190,6 @@ console.log(matchingProduct);
 console.log(cart)
 };
 
-
-
 function renderCart (cart, desserts) {
   const cartContainer = document.querySelector('.cart-products-container');
   const emptyCart = document.querySelector('.product-cart');
@@ -204,7 +201,7 @@ function renderCart (cart, desserts) {
   cart.forEach(cartItem => {
     const dessert = desserts.find(dessert => dessert.id === parseInt(cartItem.productId));
     html += `
-          <article class="cart-product-container">
+          <article class="cart-product-container cart-product-container-${dessert.id}">
             <div class="cart-product-details">
               <h4>${dessert.name}</h4>
               <div class="cart-product-quantity">
@@ -213,11 +210,53 @@ function renderCart (cart, desserts) {
                 <span class="cart-product-total-price">$${cartItem.quantity * dessert.price}</span>
               </div>
             </div>
-            <button class="delete-btn">x</button>
+            <button class="delete-btn" data-product-id="${dessert.id}">x</button>
           </article>
     `;
+
+  calculateCartTotal(desserts);
+  calculateTotalQuantity();
   })
   cartContainer.innerHTML = html;
+
+  const deleteBtns = document.querySelectorAll('.delete-btn');
+  deleteBtns.forEach(deleteBtn =>
+    deleteBtn.addEventListener('click', () => {
+      const productId = deleteBtn.dataset.productId;
+      removeFromCart(productId);
+      const container = document.querySelector(`.cart-product-container-${productId}`);
+      container.remove();
+      changeAddToCartBtn(productId, desserts); 
+      calculateCartTotal(desserts);
+    })
+  );
+};
+
+function removeFromCart (productId) {
+  const newCart = [];
+
+  cart.forEach((cartItem) => {
+      if(cartItem.productId !== productId) {
+          newCart.push(cartItem);
+      }
+  });
+
+  cart = newCart;
+};
+
+function calculateCartTotal (desserts) {
+  let total = 0;
+  cart.forEach((cartItem) => {
+    const dessert = desserts.filter(dessert => dessert.id === parseInt(cartItem.productId));
+    total += cartItem.quantity * dessert[0].price;
+  });
+  document.querySelector('.cart-total-price').innerHTML = `$${total}`;
+}
+
+function calculateTotalQuantity () {
+  const cartQuantity = calculateCartQuantity();
+  console.log(cartQuantity);
+  document.querySelector('.total-quantity').innerHTML = `Your Cart(${cartQuantity})`;
 }
 
 async function renderPage() {
