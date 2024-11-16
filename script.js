@@ -65,7 +65,7 @@ function addToCart (productId) {
   } else {
    cart.push({
        productId, 
-       quantity
+       quantity: 0
       });
   }
 
@@ -103,7 +103,7 @@ function findMatchingProduct(productId) {
   return matchingProduct;
 }
 
-function changeAddToCartBtn(productId) {
+function changeAddToCartBtn(productId, desserts) {
   const addBtn = document.querySelector(`.js-add-to-cart-container-${productId}`);
   const productImage = document.querySelector(`.product-image-${productId}`);
   const message = document.querySelector(`.message-${productId}`);
@@ -127,32 +127,32 @@ function changeAddToCartBtn(productId) {
     const plusBtn = document.querySelector(`.plus-${productId}`);
     plusBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      add(productId, message, span);
+      add(productId, message, span, desserts);
     });
 
     const minusBtn = document.querySelector(`.minus-${productId}`);
     minusBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      subtract(productId, message, span);
+      subtract(productId, message, span, desserts);
     });
 
 };
 
-function add(productId, message, span) {
+function add(productId, message, span, desserts) {
   let matchingProduct = findMatchingProduct(productId);
     if(matchingProduct) {
       matchingProduct.quantity++;
       message.innerHTML = '';
       span.innerHTML = matchingProduct.quantity;
       updateQuantity(productId, matchingProduct.quantity);
-      // renderCart(cart, desserts);
+      renderCart(cart, desserts);
       if(matchingProduct.quantity >= 3) {
        matchingProduct.quantity = 3;
         message.innerHTML = `Quantity cannot be more then ${matchingProduct.quantity}!!!`;
         message.classList.add('error-message');
         span.innerHTML = matchingProduct.quantity;
         updateQuantity(productId, matchingProduct.quantity);
-        // renderCart(cart, desserts);
+        renderCart(cart, desserts);
       }
     } else {
       cart.push({
@@ -165,18 +165,21 @@ function add(productId, message, span) {
 }
 
 
-function subtract(productId, message, span) {
+function subtract(productId, message, span, desserts) {
   let matchingProduct = findMatchingProduct(productId);
   if(matchingProduct) {
     matchingProduct.quantity--;
-    updateQuantity(productId, matchingProduct.quantity);
     message.innerHTML = '';
     span.innerHTML = matchingProduct.quantity;
+    updateQuantity(productId, matchingProduct.quantity);
+    renderCart(cart, desserts);
     if(matchingProduct.quantity <= 0) {
      matchingProduct.quantity = 0;
       message.innerHTML = `Quantity cannot be less then ${matchingProduct.quantity}!!!`;
       message.classList.add('error-message');
       span.innerHTML = matchingProduct.quantity;
+      updateQuantity(productId, matchingProduct.quantity);
+      renderCart(cart, desserts);
     }
   } else {
     cart.push({
@@ -190,32 +193,32 @@ console.log(cart)
 
 
 
-// function renderCart (cart, desserts) {
-//   const cartContainer = document.querySelector('.cart-products-container');
-//   const emptyCart = document.querySelector('.product-cart');
-//   const cartWithProducts = document.querySelector('.cart');
-//   emptyCart.style.display = 'none';
-//   cartWithProducts.style.display = 'block';
-//   let html = '';
-//   console.log(cart);
-//   cart.forEach(cartItem => {
-//     const dessert = desserts.find(dessert => dessert.id === parseInt(cartItem.productId));
-//     html += `
-//           <article class="cart-product-container">
-//             <div class="cart-product-details">
-//               <h4>${dessert.name}</h4>
-//               <div class="cart-product-quantity">
-//                 <span class="cart-quantity">${cartItem.quantity}x</span>
-//                 <span class="cart-product-price">@ $${dessert.price}</span>
-//                 <span class="cart-product-total-price">$${cartItem.quantity * dessert.price}</span>
-//               </div>
-//             </div>
-//             <button class="delete-btn">x</button>
-//           </article>
-//     `;
-//   })
-//   cartContainer.innerHTML = html;
-// }
+function renderCart (cart, desserts) {
+  const cartContainer = document.querySelector('.cart-products-container');
+  const emptyCart = document.querySelector('.product-cart');
+  const cartWithProducts = document.querySelector('.cart');
+  emptyCart.style.display = 'none';
+  cartWithProducts.style.display = 'block';
+  let html = '';
+  console.log(cart);
+  cart.forEach(cartItem => {
+    const dessert = desserts.find(dessert => dessert.id === parseInt(cartItem.productId));
+    html += `
+          <article class="cart-product-container">
+            <div class="cart-product-details">
+              <h4>${dessert.name}</h4>
+              <div class="cart-product-quantity">
+                <span class="cart-quantity">${cartItem.quantity}x</span>
+                <span class="cart-product-price">@ $${dessert.price}</span>
+                <span class="cart-product-total-price">$${cartItem.quantity * dessert.price}</span>
+              </div>
+            </div>
+            <button class="delete-btn">x</button>
+          </article>
+    `;
+  })
+  cartContainer.innerHTML = html;
+}
 
 async function renderPage() {
   const desserts = await fetchData();
@@ -224,7 +227,7 @@ async function renderPage() {
   document.querySelectorAll('.product').forEach((product) =>
     product.addEventListener('click', () => {
       const productId = product.dataset.productId;
-       changeAddToCartBtn(productId); 
+       changeAddToCartBtn(productId, desserts); 
        addToCart(productId);
     })
   );
