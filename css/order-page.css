@@ -1,0 +1,102 @@
+.order-confirmed-page {
+  background-color: var(--color-white);
+  margin: 0 auto;
+  width: 100%;
+  max-width: 375px;
+  padding: 1.5em;
+  border-radius: var(--border-radius-image);
+  display: none;
+}
+
+.order-confirmed-page h2 {
+  color: var(--color-black);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 0.5em;
+  line-height: 1;
+}
+
+.order-confirmed-page p {
+  margin-block: 0.5em;
+  color: var(--color-rose-500);
+}
+
+.ordered-products-container {
+  background-color: var(--color-rose-100);
+  margin-top: 2em;
+  padding: 1.5em;
+  border-radius: var(--border-radius-image);
+}
+
+.ordered-product {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1em;
+  border-bottom: 2px solid hsla(14, 24%, 72%, 0.142);
+  padding-bottom: 1em;
+}
+
+.ordered-product-image {
+  max-width: 3.5rem;
+}
+
+.ordered-product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ordered-product-details h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-rose-900);
+}
+
+.quantity {
+  color: var(--color-red);
+  font-weight: 600;
+  margin-right: 0.25em;
+}
+
+.product-price {
+  color: var(--color-rose-500);
+}
+
+.ordered-product-total-price {
+  margin-left: auto;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-rose-900);
+}
+
+.total-price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-price-container h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-rose-900);
+}
+
+.total-price-container .total-price {
+  color: var(--color-rose-900);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.new-order {
+  width: 100%;
+  margin-top: 2em;
+  padding: 1em 2em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: var(--color-red);
+  color: var(--color-rose-100);
+  border-radius: 100px;
+  font-size: 1rem;
+}
