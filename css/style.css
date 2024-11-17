@@ -30,7 +30,7 @@
 
 body {
   font-family: 'Red Hat Text', sans-serif;
-  background-color: var(--color-rose-100);
+  background-color: var(--color-rose-50);
 }
 
 img,
@@ -57,8 +57,6 @@ header {
   left: 0;
   width: 100%;
   padding: 1em;
-  background-color: var(--color-green-300);
-  border-bottom: 1px solid hsla(0, 0%, 75%, 0.3);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -169,7 +167,7 @@ header h1 {
 .product-cart {
   background-color: var(--color-white);
   border-radius: var(--border-radius-image);
-  padding: 1em;
+  padding: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -215,6 +213,11 @@ header h1 {
  .wrapper {
   display: flex;
   align-items: flex-start;
+  padding: 1em;
+ }
+
+ header h1 {
+  padding-left: 0.75em;
  }
 
  .products-container {
@@ -225,6 +228,7 @@ header h1 {
   width: 32%;
   margin-top: -50px;
   margin-left: 0;
+  z-index: 2;
  }
 
 }
