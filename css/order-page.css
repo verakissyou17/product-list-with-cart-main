@@ -1,11 +1,18 @@
 .order-confirmed-page {
-  background-color: var(--color-white);
-  margin: 0 auto;
+  display: none;
+}
+
+.order-confirmed-page.confirmed {
+  display: block;
+  position: absolute;
+  top: 0%;
+  left: 0%;
   width: 100%;
-  max-width: 375px;
+  height: 100%;
+  background-color: var(--color-white);
   padding: 1.5em;
   border-radius: var(--border-radius-image);
-  display: none;
+  z-index: 100;
 }
 
 .order-confirmed-page h2 {
@@ -24,17 +31,16 @@
 .ordered-products-container {
   background-color: var(--color-rose-100);
   margin-top: 2em;
-  padding: 1.5em;
-  border-radius: var(--border-radius-image);
+  padding: 1em;
+  border-radius: var(--border-radius-image) var(--border-radius-image) 0 0;
 }
 
 .ordered-product {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1em;
+  gap: 0.75em;
   border-bottom: 2px solid hsla(14, 24%, 72%, 0.142);
-  padding-bottom: 1em;
+  padding: 0.75em 0.5em;
 }
 
 .ordered-product-image {
@@ -74,6 +80,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.5em;
+  background-color: var(--color-rose-100);
+  border-radius: 0 0 var(--border-radius-image) var(--border-radius-image);
+  width: 100%;
 }
 
 .total-price-container h3 {
@@ -99,4 +109,40 @@
   color: var(--color-rose-100);
   border-radius: 100px;
   font-size: 1rem;
+}
+
+@media screen and (min-width: 500px) {
+  .order-confirmed-page.confirmed {
+    left: 20%;
+    top: 0%;
+    height: 40%;
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .order-confirmed-page.confirmed {
+    left: 25%;
+    top: 0%;
+    height: 50%;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .order-confirmed-page.confirmed {
+    left: 25%;
+    top: 5%;
+    height: 50%;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .order-confirmed-page.confirmed {
+    left: 25%;
+    top: 5%;
+    height: 65%;
+    width: 50%;
+  }
 }

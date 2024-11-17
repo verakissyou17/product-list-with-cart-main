@@ -4,13 +4,22 @@ h4 {
   color: var(--color-rose-900);
 }
 
+.total-quantity {
+  color: var(--color-red);
+}
+
 .cart {
   background-color: var(--color-white);
+  border-radius: var(--border-radius-image);
   padding: 2em 1em;
   width: 100%;
-  max-width: 350px;
+  max-width: 370px;
   margin: 1em auto;
   display: none;
+}
+
+.cart.visible {
+  display: block;
 }
 
 .cart-product-container {
@@ -89,15 +98,32 @@ h4 {
 
 .confirm-order {
   width: 100%;
-  margin-top: 2em;
+  margin-top: 1em;
   padding: 1em 2em;
   border: none;
   outline: none;
   cursor: pointer;
   background-color: var(--color-red);
-  color: var(--color-rose-100);
   border-radius: 100px;
+  text-align: center;
+}
+
+
+.confirm-order a {
+  display: block;
+  text-decoration: none;
   font-size: 1rem;
+  color: var(--color-rose-100);
+}
+
+@media screen and (min-width: 800px) {
+  .cart.visible {
+    z-index: 2;
+    position: sticky;
+    right: 1%;
+    top: 50px;
+    margin-top: -50px;
+  }
 }
 
 

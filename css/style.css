@@ -3,7 +3,7 @@
 :root {
   --color-red: hsl(14, 86%, 42%);
   --color-green: hsl(159, 69%, 38%);
-  --color-green-300: hsla(159, 69%, 38%, 0.3);
+  --color-green-300: hsl(12, 20%, 44%, 0.1);
   --color-rose-50: hsl(20, 50%, 98%);
   --color-rose-100: hsl(13, 31%, 94%);
   --color-rose-300: hsl(14, 25%, 72%);
@@ -45,27 +45,28 @@ picture.bordered {
   border: 3px solid var(--color-red);
 }
 
-/* Header */
+.wrapper {
+  position: relative;
+}
 
+/* Header */
 header {
   position: sticky;
   z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
+  padding: 1em;
   background-color: var(--color-green-300);
   border-bottom: 1px solid hsla(0, 0%, 75%, 0.3);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1em;
 }
 
 header h1 {
   color: var(--color-rose-900);
-  font-size: 2rem;
-  font-style: italic;
-  opacity: 0.7;
+  font-size: clamp(2rem, 1.648rem + 1.502vw, 3rem);
 }
 
 /* Main */
@@ -73,8 +74,9 @@ header h1 {
 .products-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  margin: 0 auto;
   padding: 1em;
+  gap: 2rem;
   line-height: 1.2;
 }
 
@@ -92,7 +94,7 @@ header h1 {
 
 .product-add-to-cart-container {
   width: var(--product-cart-width);
-  padding: 0.5em;
+  padding: 0.75em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,6 +105,10 @@ header h1 {
   border: 2px solid var(--color-rose-500);
   cursor: pointer;
   margin-top: -20px;
+}
+
+.product-add-to-cart-container:hover {
+  box-shadow: 1px 1px 1px var(--color-rose-500);
 }
 
 .product-add-to-cart-container.selected span {
@@ -129,7 +135,12 @@ header h1 {
   border: none;
   background-color: transparent;
   color: var(--color-rose-500);
+  font-weight: 600;
   cursor: pointer;
+}
+
+.add-to-cart:hover {
+  scale: 1.1;
 }
 
 .product-details {
@@ -164,7 +175,7 @@ header h1 {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 350px;
+  max-width: 370px;
   margin: 1em auto;
 }
 
@@ -191,10 +202,29 @@ header h1 {
 }
 
 .attribution {
-  margin-top: 0.5em;
+  margin-top: 0.75em;
   font-size: 11px;
   text-align: center;
 }
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--color-green);
+}
+
+
+@media screen and (min-width: 800px) {
+ .wrapper {
+  display: flex;
+  align-items: flex-start;
+ }
+
+ .products-container {
+  width: 67%;
+ }
+
+ .product-cart {
+  width: 32%;
+  margin-top: -50px;
+  margin-left: 0;
+ }
+
 }

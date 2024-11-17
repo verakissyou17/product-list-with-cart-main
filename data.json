@@ -106,5 +106,17 @@
     "name": "Vanilla Panna Cotta",
     "category": "Panna Cotta",
     "price": 6.5
+  },
+  {
+    "id": 10,
+    "image": {
+      "thumbnail": "./assets/images/image-cupcake-thumbnail.jpg",
+      "mobile": "./assets/images/image-cupcake-mobile.jpg",
+      "tablet": "./assets/images/image-cupcake-tablet.jpg",
+      "desktop": "./assets/images/image-cupcake-desktop.jpg"
+    },
+    "name": "Cupcake",
+    "category": "Cupcakes",
+    "price": 4
   }
 ]

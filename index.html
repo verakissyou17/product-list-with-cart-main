@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frontend Mentor | Product list with cart</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/order-page.css" />
-    <link rel="stylesheet" href="./css/cart-container.css">
-  </head>
 
-  <body>
-    <header>
-      <h1>Desserts</h1>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frontend Mentor | Product list with cart</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/order-page.css" />
+  <link rel="stylesheet" href="./css/cart-container.css">
+</head>
 
+<body>
+
+  <header>
+    <h1>Desserts</h1>
+  </header>
+
+  <div id="wrapper" class="wrapper">
     <main class="products-container"></main>
 
     <aside class="product-cart">
@@ -24,65 +27,51 @@
       </div>
     </aside>
 
-      <div class="cart">
-        <h2 class="total-quantity"></h2>
-        <section class="cart-products-container">
-        </section>
+    <div class="cart">
+      <h2 class="total-quantity"></h2>
+      <section class="cart-products-container">
+      </section>
 
-        <section class="cart-total">
-          <h4>Order Total</h4>
-          <span class="cart-total-price">$45.00</span>
-        </section>
-      
-        <section class="cart-eco-zone">
-          <img src="./assets/images/icon-carbon-neutral.svg" alt="eco-icon">
-          <p>This is a <b>carbon-neutral</b> delivery</p>
-        </section>
-        <button class="confirm-order">Confirm Order</button>
+      <section class="cart-total">
+        <h4>Order Total</h4>
+        <span class="cart-total-price"></span>
+      </section>
+
+      <section class="cart-eco-zone">
+        <img src="./assets/images/icon-carbon-neutral.svg" alt="eco-icon">
+        <p>This is a <b>carbon-neutral</b> delivery</p>
+      </section>
+      <div class="confirm-order">
+        <a href="#wrapper">Confirm Order</a>
       </div>
+    </div>
 
     <div class="order-confirmed-page">
       <section class="order-confirmed-page-header">
-        <img
-          src="./assets/images/icon-order-confirmed.svg"
-          alt="icon-order-confirmed"
-        />
+        <img src="./assets/images/icon-order-confirmed.svg" alt="icon-order-confirmed" />
         <h2>Order Confirmed</h2>
         <p>We hope you enjoy your food!</p>
       </section>
-      <section class="ordered-products-container">       
-        <article class="ordered-product">
-          <div class="ordered-product-image">
-            <img src="./assets/images/image-cake-thumbnail.jpg" alt="cake" />
-          </div>
-          <div class="ordered-product-details">
-            <h3>Cake</h3>
-            <div class="oredered-product-quantity">
-              <span class="quantity">1x</span>
-              <span class="product-price">@ $4.5</span>
-            </div>
-          </div>
-          <div class="ordered-product-total-price">
-            <span class="total-price">$4.5</span>
-          </div>
-        </article>
-        <article class="total-price-container">
-          <h3>Order total</h3>
-          <span class="total-price">$45.00</span>
-        </article>
+      <section class="ordered-products-container">
       </section>
+      <article class="total-price-container">
+        <h3>Order total</h3>
+        <span class="total-price">$45.00</span>
+      </article>
       <button class="new-order">Start New Order</button>
     </div>
+  </div>
 
 
 
-    <footer class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Vera</a>.
-    </footer>
+  <footer class="attribution">
+    Challenge by
+    <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#">Vera</a>.
+  </footer>
 
 
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
+
 </html>
