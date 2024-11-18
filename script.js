@@ -68,8 +68,6 @@ function addToCart(productId) {
       quantity: 0,
     });
   }
-
-  console.log(cart);
 }
 
 function calculateCartQuantity() {
@@ -161,8 +159,6 @@ function add(productId, message, span, desserts) {
       quantity: 0,
     });
   }
-  console.log(matchingProduct);
-  console.log(cart);
 }
 
 function subtract(productId, message, span, desserts) {
@@ -187,8 +183,6 @@ function subtract(productId, message, span, desserts) {
       quantity: 0,
     });
   }
-  console.log(matchingProduct);
-  console.log(cart);
 }
 
 function renderCart(cart, desserts) {
@@ -198,7 +192,6 @@ function renderCart(cart, desserts) {
   emptyCart.style.display = 'none';
   cartWithProducts.classList.add('visible');
   let html = '';
-  console.log(cart);
   cart.forEach((cartItem) => {
     const dessert = desserts.find(
       (dessert) => dessert.id === parseInt(cartItem.productId),
@@ -268,7 +261,6 @@ function calculateCartTotal(desserts) {
 
 function calculateTotalQuantity() {
   const cartQuantity = calculateCartQuantity();
-  console.log(cartQuantity);
   document.querySelector(
     '.total-quantity',
   ).innerHTML = `Your Cart ( ${cartQuantity} )`;

@@ -51,20 +51,13 @@ picture.bordered {
 
 /* Header */
 header {
-  position: sticky;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 1em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  margin-top: 2em;
+  padding-left: 1em;
 }
 
 header h1 {
   color: var(--color-rose-900);
-  font-size: clamp(2rem, 1.648rem + 1.502vw, 3rem);
+  font-size: clamp(1rem, 0.472rem + 2.254vw, 2.5rem);
 }
 
 /* Main */
