@@ -118,5 +118,29 @@
     "name": "Cupcake",
     "category": "Cupcakes",
     "price": 4
+  },
+  {
+    "id": 11,
+    "image": {
+      "thumbnail": "./assets/images/image-berry-cheesecake-thumbnail.jpg",
+      "mobile": "./assets/images/image-berry-cheesecake-mobile.jpg",
+      "tablet": "./assets/images/image-berry-cheesecake-tablet.jpg",
+      "desktop": "./assets/images/image-berry-cheesecake-desktop.jpg"
+    },
+    "name": "Berry Cheesecake",
+    "category": "Cheesecake",
+    "price": 7
+  },
+  {
+    "id": 12,
+    "image": {
+      "thumbnail": "./assets/images/image-rainbow-cake-thumbnail.jpg",
+      "mobile": "./assets/images/image-rainbow-cake-mobile.jpg",
+      "tablet": "./assets/images/image-rainbow-cake-tablet.jpg",
+      "desktop": "./assets/images/image-rainbow-cake-destop.jpg"
+    },
+    "name": "Rainbow Cake",
+    "category": "Colored Cakes",
+    "price": 5
   }
 ]

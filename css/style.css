@@ -3,7 +3,6 @@
 :root {
   --color-red: hsl(14, 86%, 42%);
   --color-green: hsl(159, 69%, 38%);
-  --color-green-300: hsl(12, 20%, 44%, 0.1);
   --color-rose-50: hsl(20, 50%, 98%);
   --color-rose-100: hsl(13, 31%, 94%);
   --color-rose-300: hsl(14, 25%, 72%);
@@ -13,7 +12,6 @@
 
   --color-white: #fff;
   --color-black: #000;
-  --color-gray: #ccc;
 
   --border-radius-image: 10px;
 
@@ -51,13 +49,13 @@ picture.bordered {
 
 /* Header */
 header {
-  margin-top: 2em;
+  padding: 1.5em;
   padding-left: 1em;
 }
 
 header h1 {
   color: var(--color-rose-900);
-  font-size: clamp(1rem, 0.472rem + 2.254vw, 2.5rem);
+  font-size: clamp(1.5rem, 1.212rem + 1.231vw, 2.75rem);
 }
 
 /* Main */
@@ -66,7 +64,7 @@ header h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   margin: 0 auto;
-  padding: 1em;
+  padding: 2em;
   gap: 2rem;
   line-height: 1.2;
 }
