@@ -49,8 +49,8 @@ picture.bordered {
 
 /* Header */
 header {
-  padding: 1.5em;
   padding-left: 1em;
+  padding-top: 1em;
 }
 
 header h1 {
@@ -64,7 +64,7 @@ header h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   margin: 0 auto;
-  padding: 2em;
+  padding: 1em;
   gap: 2rem;
   line-height: 1.2;
 }
